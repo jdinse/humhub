@@ -338,7 +338,7 @@ class Profile extends ActiveRecord
             $profileFieldModels = $query->all();
 
             foreach ($profileFieldModels as $field) {
-                if (!empty($field->getUserValue($this->user))) {
+                if (!empty($field->getUserValue($this->user)) || $field->getUserValue($this->user) === '0') {
                     $fields[] = $field;
                 }
             }
